@@ -8,7 +8,7 @@ mapOFDS(
   ofdslist,
   spancol = "networkname",
   nodecol = "networkname",
-  colpal = viridis(3),
+  colpal = paletteer_dynamic("cartography::multi.pal", 20),
   spanlegend = TRUE,
   nodelegend = TRUE
 )
@@ -31,4 +31,13 @@ a leaflet map
 }
 \description{
 Title
+}
+\examples{
+\dontrun{
+flist <- readOFDS('myfolder')
+mapOFDS(dflist,
+spancol = 'networkname',
+nodecol = 'networkname',
+nodelegend = FALSE,
+spanlegend = FALSE)}
 }

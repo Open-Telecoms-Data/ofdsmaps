@@ -13,6 +13,6 @@ Imports:
     dplyr,
     jsonlite,
     leaflet,
+    paletteer,
     purrr,
-    tibble,
-    viridis
+    tibble

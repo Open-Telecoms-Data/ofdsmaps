@@ -10,20 +10,19 @@
 #' @return a leaflet map
 #' @importFrom leaflet leaflet addPolylines addMarkers addTiles addLegend
 #' @importFrom dplyr %>%
-#' @importFrom viridis viridis
+#' @importFrom paletteer paletteer_dynamic
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' flist <- readOFDS('myfolder)
+#' flist <- readOFDS('myfolder')
 #' mapOFDS(dflist,
 #' spancol = 'networkname',
 #' nodecol = 'networkname',
 #' nodelegend = FALSE,
-#' spanlegend = FALSE)
-#' }
+#' spanlegend = FALSE)}
 
-mapOFDS <- function(ofdslist, spancol = 'networkname', nodecol = 'networkname', colpal = viridis(3), spanlegend = TRUE,nodelegend = TRUE){
+mapOFDS <- function(ofdslist, spancol = 'networkname', nodecol = 'networkname', colpal =  paletteer_dynamic("cartography::multi.pal", 20), spanlegend = TRUE,nodelegend = TRUE){
 
     m <- leaflet::leaflet() %>%
     leaflet::addTiles()
