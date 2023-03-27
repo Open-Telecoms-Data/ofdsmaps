@@ -1,7 +1,6 @@
 library(shiny)
 library(ofdsmaps)
 library(leaflet)
-library(viridis)
 
 options(
     # whenever there is one account token found, use the cached token
