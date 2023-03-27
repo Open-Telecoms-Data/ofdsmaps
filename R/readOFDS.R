@@ -31,17 +31,20 @@ readOFDS <- function(dir){
     spans_list <- j$networks[[1]]$spans
     nodes_list <- j$networks[[1]]$nodes
     
+    fill_empty <- function(field){
+      out <- ifelse(is.null(field),'No data',field)
+    }
     
     span_df <- function(span){
       coord_list <- span$route$coordinates
       coord_mat <- matrix(unlist(coord_list),ncol = 2, byrow = TRUE)
       colnames(coord_mat) <- c('long','lat')
       out <- tibble::as_tibble(coord_mat)
-      out$name <- span$name
-      out$networkname <- j$networks[[1]]$name
-      out$physicalInfrastructureProvider <- span$physicalInfrastructureProvider$name
-      out$status <- span$status
-      out$fibreType <- span$fibreType
+      out$name <- fill_empty(span$name)
+      out$networkname <- fill_empty(j$networks[[1]]$name)
+      out$physicalInfrastructureProvider <- fill_empty(span$physicalInfrastructureProvider$name)
+      out$status <- fill_empty(span$status)
+      out$fibreType <- fill_empty(span$fibreType)
       out$none <- 'None'
       return(out)
     }
@@ -50,11 +53,11 @@ readOFDS <- function(dir){
       coord_mat <- matrix(unlist(coord_list),ncol = 2, byrow = TRUE)
       colnames(coord_mat) <- c('long','lat')
       out <- tibble::as_tibble(coord_mat)
-      out$name <- node$name
-      out$networkname <- j$networks[[1]]$name
-      out$physicalInfrastructureProvider <- node$physicalInfrastructureProvider$name
-      out$status <- node$status
-      out$accessPoint <- node$accessPoint
+      out$name <- fill_empty(node$name)
+      out$networkname <- fill_empty(j$networks[[1]]$name)
+      out$physicalInfrastructureProvider <- fill_empty(node$physicalInfrastructureProvider$name)
+      out$status <- fill_empty(node$status)
+      out$accessPoint <- fill_empty(node$accessPoint)
       out$none <- 'None'
       return(out)
     }
