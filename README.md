@@ -7,7 +7,7 @@ This repository contains R code and a shiny app for generating maps from multipl
 Clone this repository, navigate to the `ofdsmaps` directory, then run:
 
 ```
-devtools::install_github('opendataservices/carpentr@main')
+devtools::install_github('opendataservices/ofdsmaps@main')
 ```
 
 ## Front end development
