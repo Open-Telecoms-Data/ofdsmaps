@@ -16,7 +16,7 @@ The shiny app reads data files from this public Google drive folder. If you have
 
 ## Front end development
 
-A shiny app is located in `inst/shiny/ofdsmaps`, and can be edited from within there. To run the app locally, run:
+A shiny app is located in `inst/shiny/ofdsmaps`, and can be edited from within there. To run the app locally, clone this repository, navigate to the `ofdsmaps` folder, and run:
 
 ```
 shiny::runApp('inst/shiny/ofdsmaps')
