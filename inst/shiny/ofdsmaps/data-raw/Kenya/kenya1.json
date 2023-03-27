@@ -1,0 +1,332 @@
+{
+    "networks": [
+        {
+            "fid": 8,
+            "name": "Kenya Net 1",
+            "id": "caabf613-a693-4ea5-b780-72a68c292a77",
+            "crs": {
+                "name": "urn:ogc:def:crs:OGC::CRS84",
+                "uri": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+            },
+            "links": [
+                {
+                    "rel": "describedby",
+                    "href": "https://raw.githubusercontent.com/Open-Telecoms-Data/open-fibre-data-standard/0__2__0/schema/network-schema.json"
+                }
+            ],
+            "nodes": [
+                {
+                    "id": "{7c66d5ce-1372-44c5-93fd-1d5610baf57c}",
+                    "name": "Nairobi",
+                    "status": "operational",
+                    "accessPoint": true,
+                    "physicalInfrastructureProvider": {
+                        "id": "{a2c7b749-d993-4ff4-ac73-900bf1fa4cf1}",
+                        "name": "Kenya Fibre Co"
+                    },
+                    "location": {
+                        "type": "Point",
+                        "coordinates": [
+                            36.77934052897598,
+                            -1.2895475596946366
+                        ]
+                    }
+                },
+                {
+                    "id": "{ff400a29-c861-4583-ae98-d217e291ec81}",
+                    "name": "Arusha",
+                    "status": "operational",
+                    "accessPoint": true,
+                    "physicalInfrastructureProvider": {
+                        "id": "{a2c7b749-d993-4ff4-ac73-900bf1fa4cf1}",
+                        "name": "Kenya Fibre Co"
+                    },
+                    "location": {
+                        "type": "Point",
+                        "coordinates": [
+                            36.657433862368094,
+                            -3.383273935866681
+                        ]
+                    }
+                },
+                {
+                    "id": "{d3402a14-2d61-4937-b8bf-e01b9a3aa2c5}",
+                    "name": "Mombasa",
+                    "status": "operational",
+                    "accessPoint": true,
+                    "physicalInfrastructureProvider": {
+                        "id": "{a2c7b749-d993-4ff4-ac73-900bf1fa4cf1}",
+                        "name": "Kenya Fibre Co"
+                    },
+                    "location": {
+                        "type": "Point",
+                        "coordinates": [
+                            39.66643724256446,
+                            -4.050217137794743
+                        ]
+                    }
+                }
+            ],
+            "organisations": [
+                {
+                    "id": "{a2c7b749-d993-4ff4-ac73-900bf1fa4cf1}",
+                    "name": "Kenya Fibre Co"
+                },
+                {
+                    "id": "{9404a51c-cf61-4aa3-9ca6-c789c80b94b7}",
+                    "name": "Kenya New Co"
+                }
+            ],
+            "spans": [
+                {
+                    "name": "Nairobi to Mombasa",
+                    "status": "operational",
+                    "start": "{7c66d5ce-1372-44c5-93fd-1d5610baf57c}",
+                    "end": "{d3402a14-2d61-4937-b8bf-e01b9a3aa2c5}",
+                    "physicalInfrastructureProvider": {
+                        "id": "{a2c7b749-d993-4ff4-ac73-900bf1fa4cf1}",
+                        "name": "Kenya Fibre Co"
+                    },
+                    "fibreType": "G.652",
+                    "route": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                36.78524764,
+                                -1.30127988
+                            ],
+                            [
+                                36.97880767,
+                                -1.52249134
+                            ],
+                            [
+                                37.16683741,
+                                -1.81559652
+                            ],
+                            [
+                                37.41017001,
+                                -2.04233826
+                            ],
+                            [
+                                37.70327519,
+                                -2.191656
+                            ],
+                            [
+                                37.62585118,
+                                -2.34650402
+                            ],
+                            [
+                                37.94107751,
+                                -2.76680579
+                            ],
+                            [
+                                38.16781925,
+                                -2.68938178
+                            ],
+                            [
+                                38.46645472,
+                                -3.02119896
+                            ],
+                            [
+                                38.52728787,
+                                -3.41937958
+                            ],
+                            [
+                                38.60471188,
+                                -3.42490987
+                            ],
+                            [
+                                38.96971078,
+                                -3.70142419
+                            ],
+                            [
+                                39.3678914,
+                                -3.79543906
+                            ],
+                            [
+                                39.43425484,
+                                -3.82862078
+                            ],
+                            [
+                                39.60016343,
+                                -4.05536252
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "name": "Nairobi to Arusha",
+                    "status": "operational",
+                    "start": "{7c66d5ce-1372-44c5-93fd-1d5610baf57c}",
+                    "end": "{ff400a29-c861-4583-ae98-d217e291ec81}",
+                    "physicalInfrastructureProvider": {
+                        "id": "{a2c7b749-d993-4ff4-ac73-900bf1fa4cf1}",
+                        "name": "Kenya Fibre Co"
+                    },
+                    "fibreType": "G.651.1",
+                    "route": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                36.75759621,
+                                -1.27362845
+                            ],
+                            [
+                                36.96221681,
+                                -1.50590048
+                            ],
+                            [
+                                36.79077793,
+                                -1.83771767
+                            ],
+                            [
+                                36.79077793,
+                                -2.19718628
+                            ],
+                            [
+                                36.86267165,
+                                -2.46817032
+                            ],
+                            [
+                                36.6801722,
+                                -2.68385149
+                            ],
+                            [
+                                36.70229335,
+                                -3.02119896
+                            ],
+                            [
+                                36.72441449,
+                                -3.10415326
+                            ],
+                            [
+                                36.61380876,
+                                -3.19816813
+                            ],
+                            [
+                                36.65252077,
+                                -3.37513729
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "name": "Arusha to Mombasa",
+                    "status": "planned",
+                    "start": "{ff400a29-c861-4583-ae98-d217e291ec81}",
+                    "end": "{d3402a14-2d61-4937-b8bf-e01b9a3aa2c5}",
+                    "physicalInfrastructureProvider": {
+                        "id": "{9404a51c-cf61-4aa3-9ca6-c789c80b94b7}",
+                        "name": "Kenya New Co"
+                    },
+                    "fibreType": "G.652",
+                    "route": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                36.66358134,
+                                -3.39172815
+                            ],
+                            [
+                                36.89585337,
+                                -3.37513729
+                            ],
+                            [
+                                37.13365569,
+                                -3.35301615
+                            ],
+                            [
+                                37.19448884,
+                                -3.29771328
+                            ],
+                            [
+                                37.43229115,
+                                -3.38066758
+                            ],
+                            [
+                                37.52630602,
+                                -3.42490987
+                            ],
+                            [
+                                37.60373003,
+                                -3.80096935
+                            ],
+                            [
+                                37.7806992,
+                                -4.16596825
+                            ],
+                            [
+                                37.90789579,
+                                -4.5143763
+                            ],
+                            [
+                                37.97425922,
+                                -4.6360426
+                            ],
+                            [
+                                38.16781925,
+                                -4.69134546
+                            ],
+                            [
+                                38.31713698,
+                                -4.97339007
+                            ],
+                            [
+                                38.49410615,
+                                -5.21672267
+                            ],
+                            [
+                                38.56599987,
+                                -5.31073754
+                            ],
+                            [
+                                38.87016563,
+                                -5.13376838
+                            ],
+                            [
+                                39.06925594,
+                                -5.03975351
+                            ],
+                            [
+                                39.15774052,
+                                -4.77983005
+                            ],
+                            [
+                                39.10796794,
+                                -4.63051231
+                            ],
+                            [
+                                39.15774052,
+                                -4.51990658
+                            ],
+                            [
+                                39.22963424,
+                                -4.50331572
+                            ],
+                            [
+                                39.34023997,
+                                -4.5530883
+                            ],
+                            [
+                                39.46743656,
+                                -4.50331572
+                            ],
+                            [
+                                39.55592114,
+                                -4.35399799
+                            ],
+                            [
+                                39.60569372,
+                                -4.18255911
+                            ],
+                            [
+                                39.63334515,
+                                -4.06089281
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

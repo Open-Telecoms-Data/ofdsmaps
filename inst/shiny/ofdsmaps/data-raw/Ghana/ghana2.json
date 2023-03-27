@@ -1,0 +1,252 @@
+{
+    "networks": [
+        {
+            "fid": 8,
+            "name": "Ghana network 2",
+            "id": "550b2524-b6e8-4c98-9264-471f1fce47a8",
+            "crs": {
+                "name": "urn:ogc:def:crs:OGC::CRS84",
+                "uri": "http://www.opengis.net/def/crs/OGC/1.3/CRS84"
+            },
+            "links": [
+                {
+                    "rel": "describedby",
+                    "href": "https://raw.githubusercontent.com/Open-Telecoms-Data/open-fibre-data-standard/0__2__0/schema/network-schema.json"
+                }
+            ],
+            "nodes": [
+                {
+                    "id": "{334318b4-a83e-4e22-807a-f5cd6e02b046}",
+                    "name": "Lome",
+                    "status": "operational",
+                    "accessPoint": true,
+                    "physicalInfrastructureProvider": {
+                        "id": "{5f5c96c4-0eb0-40bb-81a3-a1683602e3ea}",
+                        "name": "New Fibre Co"
+                    },
+                    "location": {
+                        "type": "Point",
+                        "coordinates": [
+                            1.2300773496261082,
+                            6.126266432470001
+                        ]
+                    }
+                },
+                {
+                    "id": "{2922e9d1-7fa3-4add-a9e7-39b210c651e9}",
+                    "name": "Accra",
+                    "status": "operational",
+                    "accessPoint": true,
+                    "physicalInfrastructureProvider": {
+                        "id": "{5f5c96c4-0eb0-40bb-81a3-a1683602e3ea}",
+                        "name": "New Fibre Co"
+                    },
+                    "location": {
+                        "type": "Point",
+                        "coordinates": [
+                            -0.1868075098034062,
+                            5.541197280461406
+                        ]
+                    }
+                },
+                {
+                    "id": "{767f24d7-ad88-4ca7-ab6a-c79876461257}",
+                    "name": "Ho",
+                    "status": "planned",
+                    "accessPoint": false,
+                    "physicalInfrastructureProvider": {
+                        "id": "{5f5c96c4-0eb0-40bb-81a3-a1683602e3ea}",
+                        "name": "New Fibre Co"
+                    },
+                    "location": {
+                        "type": "Point",
+                        "coordinates": [
+                            0.4796625677020385,
+                            6.614671985451091
+                        ]
+                    }
+                }
+            ],
+            "organisations": [
+                {
+                    "id": "{5f5c96c4-0eb0-40bb-81a3-a1683602e3ea}",
+                    "name": "New Fibre Co"
+                }
+            ],
+            "spans": [
+                {
+                    "name": "Accra to Lome",
+                    "status": "operational",
+                    "start": "{2922e9d1-7fa3-4add-a9e7-39b210c651e9}",
+                    "end": "{334318b4-a83e-4e22-807a-f5cd6e02b046}",
+                    "physicalInfrastructureProvider": {
+                        "id": "{5f5c96c4-0eb0-40bb-81a3-a1683602e3ea}",
+                        "name": "New Fibre Co"
+                    },
+                    "fibreType": "G.651.1",
+                    "route": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                -0.18935129,
+                                5.54628484
+                            ],
+                            [
+                                -0.17154484,
+                                5.62005443
+                            ],
+                            [
+                                -0.00874299,
+                                5.69128024
+                            ],
+                            [
+                                0.05230771,
+                                5.75487471
+                            ],
+                            [
+                                0.2710727,
+                                5.85408209
+                            ],
+                            [
+                                0.46185612,
+                                5.88969499
+                            ],
+                            [
+                                0.53308193,
+                                5.89987011
+                            ],
+                            [
+                                0.5356257,
+                                6.0092526
+                            ],
+                            [
+                                0.70860267,
+                                6.02451528
+                            ],
+                            [
+                                0.76456581,
+                                6.10845998
+                            ],
+                            [
+                                0.79763493,
+                                6.11354754
+                            ],
+                            [
+                                0.86886074,
+                                6.06267196
+                            ],
+                            [
+                                0.98078702,
+                                6.04232173
+                            ],
+                            [
+                                1.14104509,
+                                6.11609132
+                            ],
+                            [
+                                1.14867642,
+                                6.09828486
+                            ],
+                            [
+                                1.23007735,
+                                6.12881021
+                            ]
+                        ]
+                    }
+                },
+                {
+                    "name": "Accra to Ho",
+                    "status": "planned",
+                    "start": "{2922e9d1-7fa3-4add-a9e7-39b210c651e9}",
+                    "end": "{767f24d7-ad88-4ca7-ab6a-c79876461257}",
+                    "physicalInfrastructureProvider": {
+                        "id": "{5f5c96c4-0eb0-40bb-81a3-a1683602e3ea}",
+                        "name": "New Fibre Co"
+                    },
+                    "fibreType": "G.651.1",
+                    "route": {
+                        "type": "LineString",
+                        "coordinates": [
+                            [
+                                -0.18680751,
+                                5.54374106
+                            ],
+                            [
+                                -0.16900106,
+                                5.62005443
+                            ],
+                            [
+                                -0.01637432,
+                                5.68619268
+                            ],
+                            [
+                                0.00143213,
+                                5.7675936
+                            ],
+                            [
+                                0.0294137,
+                                5.85662587
+                            ],
+                            [
+                                0.05485149,
+                                5.9609208
+                            ],
+                            [
+                                0.04467637,
+                                6.0703033
+                            ],
+                            [
+                                0.05739527,
+                                6.15170422
+                            ],
+                            [
+                                0.09300817,
+                                6.24328026
+                            ],
+                            [
+                                0.12862108,
+                                6.25599916
+                            ],
+                            [
+                                0.13625241,
+                                6.29161206
+                            ],
+                            [
+                                0.16932154,
+                                6.33740008
+                            ],
+                            [
+                                0.18712799,
+                                6.37810055
+                            ],
+                            [
+                                0.16932154,
+                                6.44169502
+                            ],
+                            [
+                                0.24309113,
+                                6.53581484
+                            ],
+                            [
+                                0.28633537,
+                                6.58414664
+                            ],
+                            [
+                                0.39063031,
+                                6.57142774
+                            ],
+                            [
+                                0.44913722,
+                                6.59686553
+                            ],
+                            [
+                                0.47457501,
+                                6.61212821
+                            ]
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
