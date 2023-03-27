@@ -25,14 +25,11 @@ downloadOFDS <- function(country, overwrite = FALSE){
     url <- 'https://drive.google.com/drive/folders/1D6jtp7sryUm5_ArBEyZrlaYpHTWnR5Gu'
     }
   
-  if(length(list.files(paste0('data/',country)) == 0) | overwrite)
+  if((length(list.files(paste0('data/',country))) == 0) | overwrite)
   {
     ls_tibble <- googledrive::drive_ls(googledrive::as_id(url))
-  }
-  for (i in 1:length(ls_tibble$id)) {
-    if(!ls_tibble$name[i] %in% list.files(paste0('data/',country)) | overwrite)
-    {
-      googledrive::drive_download(as_id(ls_tibble$id[i]),
+    for (i in 1:length(ls_tibble$id)) {
+        googledrive::drive_download(as_id(ls_tibble$id[i]),
                                   path = paste0('data/',country,'/',ls_tibble$name[i]),
                                   overwrite = overwrite)
     }

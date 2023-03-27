@@ -63,7 +63,9 @@ ui <- navbarPage(HTML("<b>Open Fibre Data Standard</b> Visualisation Tool"),coll
 # Define server logic required to draw a histogram
 server <- function(input, output) {
 
-    dd <- eventReactive(input$refresh, {
+    observeEvent(input$refresh, {
+        file.remove(list.files('data/Ghana',include.dirs = F, full.names = T, recursive = T))
+        file.remove(list.files('data/Kenya',include.dirs = F, full.names = T, recursive = T))
         downloadOFDS(input$country,overwrite = TRUE)
     })
     
