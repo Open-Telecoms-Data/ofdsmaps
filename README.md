@@ -22,7 +22,7 @@ A shiny app is located in `inst/shiny/ofdsmaps`, and can be edited from within t
 shiny::runApp('inst/shiny/ofdsmaps')
 ```
 
-To deploy on shinyapps.io, install and configure the `rsconnect` library to access the 'opendataservices' account on shiny.io (see [here](https://shiny.rstudio.com/articles/shinyapps.html) for guidance, then run:
+To deploy on shinyapps.io, install and configure the `rsconnect` library to access the 'opendataservices' account on shiny.io (see [here](https://shiny.rstudio.com/articles/shinyapps.html) for guidance), then run:
 
 ```
 rsconnect::deployApp('inst/shiny/ofdsmaps',account = 'opendataservices')
