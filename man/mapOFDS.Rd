@@ -34,7 +34,7 @@ Title
 }
 \examples{
 \dontrun{
-flist <- readOFDS('myfolder')
+dflist <- readOFDS()
 mapOFDS(dflist,
 spancol = 'networkname',
 nodecol = 'networkname',

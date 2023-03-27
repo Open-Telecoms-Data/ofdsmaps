@@ -3,6 +3,13 @@ library(ofdsmaps)
 library(leaflet)
 library(viridis)
 
+options(
+    # whenever there is one account token found, use the cached token
+    gargle_oauth_email = TRUE,
+    # specify auth tokens should be stored in a hidden directory ".secrets"
+    gargle_oauth_cache = ".secrets"
+)
+
 # Define UI for application that draws a histogram
 ui <- navbarPage(HTML("<b>Open Fibre Data Standard</b> Visualisation Tool"),collapsible = TRUE,
                  id = "inTabset",
@@ -19,7 +26,9 @@ ui <- navbarPage(HTML("<b>Open Fibre Data Standard</b> Visualisation Tool"),coll
                             absolutePanel(id = "controls", class = "panel panel-default", fixed = TRUE,
                                           draggable = TRUE, top = 60, left = "auto", right = 20, bottom = "auto",
                                           width = 330, height = "auto",
-                                          selectInput("folder", "Select networks to show", choices = c('Ghana'='Ghana','Kenya'='Kenya')),
+                                          selectInput("country", "Select networks to show",
+                                                      choices = c('Ghana'='Ghana',
+                                                                  'Kenya'='Kenya')),
                                           selectInput("spancol", "Colour spans by",
                                                       choices = c('None' = 'none',
                                                                   'Network name'='networkname',
@@ -33,8 +42,8 @@ ui <- navbarPage(HTML("<b>Open Fibre Data Standard</b> Visualisation Tool"),coll
                                                                   'Status' = 'status',
                                                                   'Access point?' = 'accessPoint')),
                                           checkboxInput("nodelegend", "Show nodes legend", FALSE),
-                                          checkboxInput("spanlegend", "Show spans legend", FALSE)
-                                          
+                                          checkboxInput("spanlegend", "Show spans legend", FALSE),
+                                          actionButton("refresh", "Get latest data")
                                           ),
 
                           )
@@ -54,9 +63,13 @@ ui <- navbarPage(HTML("<b>Open Fibre Data Standard</b> Visualisation Tool"),coll
 # Define server logic required to draw a histogram
 server <- function(input, output) {
 
+    dd <- eventReactive(input$refresh, {
+        downloadOFDS(input$country,overwrite = TRUE)
+    })
+    
     output$ofdsmap <- renderLeaflet({
-        # generate bins based on input$bins from ui.R
-        dd <- readOFDS(paste0('data-raw/',input$folder))
+        downloadOFDS(input$country,overwrite = FALSE)
+        dd <- readOFDS(dir = paste0('data/',input$country))
         mapOFDS(dd,spancol = input$spancol,nodecol = input$nodecol,nodelegend = input$nodelegend,spanlegend = input$spanlegend)
     })
 }

@@ -1,28 +1,25 @@
 #' Title
 #'
-#' @param dir A directory containing OFDS JSON objects
+#' @param dir A url to a Google drive directory containing OFDS JSON objects
 #'
 #' @return a list of data frames
 #' @importFrom jsonlite read_json
 #' @importFrom purrr map
 #' @importFrom tibble as_tibble
+#' @importFrom googledrive drive_ls as_id drive_download
 #' 
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' dflist <- mapOFDS(dd,
-#' spancol = 'networkname',
-#' nodecol = 'networkname',
-#' nodelegend = FALSE,
-#' spanlegend = FALSE)
-#' dflist
+#' downloadOFDS('exampleURL.com')
+#' dflist <- readOFDS('data/Kenya')
 #' }
-#' 
+#'
+#'
 readOFDS <- function(dir){
-  
-  jsonfiles <- paste(dir,list.files(dir,pattern = '.json$'),sep = '/')
-  
+
+
   readSingleOFDS <- function(jsonfile)
   {
     j <- jsonlite::read_json(jsonfile)
@@ -70,12 +67,12 @@ readOFDS <- function(dir){
     return(out) 
   }
 
-  
-  for(i in c(1:length(jsonfiles))){
+  jsonfiles <- list.files(dir,pattern = '*.json')
+  for (i in 1:length(jsonfiles)) {
     if(i == 1){
-      out <- readSingleOFDS(jsonfiles[i])
+      out <- readSingleOFDS(paste0(dir,'/',jsonfiles[i]))
     } else{
-      l <- readSingleOFDS(jsonfiles[i])
+      l <- readSingleOFDS(paste0(dir,'/',jsonfiles[i]))
       out$nodes <- c(out$nodes,l$nodes)
       out$spans <- c(out$spans,l$spans)
     }

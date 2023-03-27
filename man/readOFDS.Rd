@@ -7,7 +7,7 @@
 readOFDS(dir)
 }
 \arguments{
-\item{dir}{A directory containing OFDS JSON objects}
+\item{dir}{A url to a Google drive directory containing OFDS JSON objects}
 }
 \value{
 a list of data frames
@@ -17,12 +17,8 @@ Title
 }
 \examples{
 \dontrun{
-dflist <- mapOFDS(dd,
-spancol = 'networkname',
-nodecol = 'networkname',
-nodelegend = FALSE,
-spanlegend = FALSE)
-dflist
+downloadOFDS('exampleURL.com')
+dflist <- readOFDS('data/Kenya')
 }
 
 }
