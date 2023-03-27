@@ -12,7 +12,7 @@ devtools::install_github('Open-Telecoms-Data/ofdsmaps@main')
 
 ## Adding and removing data
 
-The shiny app reads data files from this public Google drive folder. If you have permissions to edit this folder, you can upload or delete files to add or remove networks from the app.
+The shiny app reads data files from this [public Google drive folder](https://drive.google.com/drive/folders/1ChYMCTO8UDpQGsbPkVxIbZtTxfBCZ4KZ). If you have permissions to edit this folder, you can upload or delete files to add or remove networks from the app.
 
 ## Front end development
 
