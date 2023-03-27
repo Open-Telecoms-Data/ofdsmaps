@@ -11,50 +11,49 @@ options(
 )
 
 # Define UI for application that draws a histogram
-ui <- navbarPage(HTML("<b>Open Fibre Data Standard</b> Visualisation Tool"),collapsible = TRUE,
+ui <- navbarPage("OFDS Visualisation Tool",collapsible = TRUE,
                  id = "inTabset",
              selected = "p1",
                  tabPanel("Map",
                           value = "p1",
-                          
-                          tags$head(
-                            # Include our custom CSS
-                            includeCSS("styles.css")
-                          ),
                           fluidPage(
-                            leafletOutput("ofdsmap",width = '100%', height = 500),
-                            absolutePanel(id = "controls", class = "panel panel-default", fixed = TRUE,
-                                          draggable = TRUE, top = 60, left = "auto", right = 20, bottom = "auto",
-                                          width = 330, height = "auto",
-                                          selectInput("country", "Select networks to show",
-                                                      choices = c('Ghana'='Ghana',
-                                                                  'Kenya'='Kenya')),
-                                          selectInput("spancol", "Colour spans by",
-                                                      choices = c('None' = 'none',
-                                                                  'Network name'='networkname',
-                                                                  'Physicial infrastructure provider'='physicalInfrastructureProvider',
-                                                                  'Status' = 'status',
-                                                                  'Fibre type' = 'fibreType')),
-                                          selectInput("nodecol", "Colour nodes by",
-                                                      choices = c('None' = 'none',
-                                                          'Network name'='networkname',
-                                                                  'Physicial infrastructure provider'='physicalInfrastructureProvider',
-                                                                  'Status' = 'status',
-                                                                  'Access point?' = 'accessPoint')),
-                                          checkboxInput("nodelegend", "Show nodes legend", FALSE),
-                                          checkboxInput("spanlegend", "Show spans legend", FALSE),
-                                          actionButton("refresh", "Get latest data")
-                                          ),
+                              h1('Open Fibre Data Standard',style = 'color:#044278'),
+                              h2('Visualisation tool',style = 'color:darkgrey'),
+                              br(),
+                              sidebarPanel(selectInput("country", "Select networks to show",
+                                                        choices = c('Ghana'='Ghana',
+                                                                    'Kenya'='Kenya')),
+                                            selectInput("spancol", "Colour spans by",
+                                                        choices = c('None' = 'none',
+                                                                    'Network name'='networkname',
+                                                                    'Physicial infrastructure provider'='physicalInfrastructureProvider',
+                                                                    'Status' = 'status',
+                                                                    'Fibre type' = 'fibreType')),
+                                            selectInput("nodecol", "Colour nodes by",
+                                                        choices = c('None' = 'none',
+                                                                    'Network name'='networkname',
+                                                                    'Physicial infrastructure provider'='physicalInfrastructureProvider',
+                                                                    'Status' = 'status',
+                                                                    'Access point?' = 'accessPoint')),
+                                            checkboxInput("nodelegend", "Show nodes legend", FALSE),
+                                            checkboxInput("spanlegend", "Show spans legend", FALSE),
+                                            actionButton("refresh", "Get latest data")
+                              ),
+                              mainPanel(
+                                  leafletOutput("ofdsmap",width = '100%', height = 500),
+                                  
+                              )
 
                           )
                           ),
                  tabPanel("About",
                           value = 'p2',
                           fluidPage(
-                            h2('About this app',style = 'color:#044278'),
+                              h1('Open Fibre Data Standard',style = 'color:#044278'),
+                              h2('About this app',style = 'color:darkgrey'),
                             br(),
                             HTML("<p>This app is a proof of concept tool, and visualises networks published according to the Open Fibre Data Standard.</p>"),
-                            HTML("<p> Source code and information about data sources is available on <a  href = 'https://github.com/OpenDataServices'>Github</a>, where you can also report issues.</p>"),
+                            HTML("<p> Source code and information about data sources is available on <a  href = 'https://github.com/Open-Telecoms-Data/ofdsmaps'>Github</a>, where you can also report issues.</p>"),
                             HTML("<p>Developed by <a href = 'https://opendataservices.coop/'>Open Data Services</a></a>.</p>")
                           )
                           ))
