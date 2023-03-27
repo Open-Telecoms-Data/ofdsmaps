@@ -45,6 +45,7 @@ readOFDS <- function(dir){
       out$physicalInfrastructureProvider <- span$physicalInfrastructureProvider$name
       out$status <- span$status
       out$fibreType <- span$fibreType
+      out$none <- 'None'
       return(out)
     }
     node_df <- function(node){
@@ -57,6 +58,7 @@ readOFDS <- function(dir){
       out$physicalInfrastructureProvider <- node$physicalInfrastructureProvider$name
       out$status <- node$status
       out$accessPoint <- node$accessPoint
+      out$none <- 'None'
       return(out)
     }
     
