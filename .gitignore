@@ -4,3 +4,4 @@
 inst/rmd/*.html
 inst/shiny/ofdsmaps/rsconnect
 inst/shiny/ofdsmaps/.secrets
+.devcontainer/*
