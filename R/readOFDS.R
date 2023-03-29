@@ -1,4 +1,4 @@
-#' Title
+#' Read in OFDS JSON data
 #'
 #' @param dir A url to a Google drive directory containing OFDS JSON objects
 #'

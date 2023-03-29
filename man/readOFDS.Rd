@@ -2,7 +2,7 @@
 % Please edit documentation in R/readOFDS.R
 \name{readOFDS}
 \alias{readOFDS}
-\title{Title}
+\title{Read in OFDS JSON data}
 \usage{
 readOFDS(dir)
 }
@@ -13,7 +13,7 @@ readOFDS(dir)
 a list of data frames
 }
 \description{
-Title
+Read in OFDS JSON data
 }
 \examples{
 \dontrun{
