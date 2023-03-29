@@ -3,13 +3,10 @@ library(ofdsmaps)
 library(leaflet)
 
 options(
-    # whenever there is one account token found, use the cached token
     gargle_oauth_email = TRUE,
-    # specify auth tokens should be stored in a hidden directory ".secrets"
     gargle_oauth_cache = ".secrets"
 )
 
-# Define UI for application that draws a histogram
 ui <- navbarPage("OFDS Visualisation Tool",collapsible = TRUE,
                  id = "inTabset",
              selected = "p1",
@@ -66,7 +63,6 @@ ui <- navbarPage("OFDS Visualisation Tool",collapsible = TRUE,
                           ))
 
 
-# Define server logic required to draw a histogram
 server <- function(input, output) {
 
     observeEvent(input$refresh, {
@@ -82,5 +78,4 @@ server <- function(input, output) {
     })
 }
 
-# Run the application 
 shinyApp(ui = ui, server = server)
