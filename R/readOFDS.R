@@ -43,8 +43,10 @@ readOFDS <- function(dir){
       out$name <- fill_empty(span$name)
       out$networkname <- fill_empty(j$networks[[1]]$name)
       out$physicalInfrastructureProvider <- fill_empty(span$physicalInfrastructureProvider$name)
+      out$supplier <- fill_empty(span$supplier$name)
       out$status <- fill_empty(span$status)
       out$fibreType <- fill_empty(span$fibreType)
+      out$transmissionMedium <- fill_empty(span$transmissionMedium)
       out$none <- 'None'
       return(out)
     }
@@ -57,7 +59,7 @@ readOFDS <- function(dir){
       out$networkname <- fill_empty(j$networks[[1]]$name)
       out$physicalInfrastructureProvider <- fill_empty(node$physicalInfrastructureProvider$name)
       out$status <- fill_empty(node$status)
-      out$accessPoint <- fill_empty(node$accessPoint)
+      out$type <- fill_empty(node$type)
       out$none <- 'None'
       return(out)
     }
