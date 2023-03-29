@@ -41,6 +41,7 @@ ui <- navbarPage("OFDS Visualisation Tool",collapsible = TRUE,
                                             actionButton("refresh", "Get latest data")
                               ),
                               mainPanel(
+                                  p('Click on any node or span in the map to view metadata'),
                                   leafletOutput("ofdsmap",width = '100%', height = 500),
                                   
                               )

@@ -2,13 +2,13 @@
 % Please edit documentation in R/mapOFDS.R
 \name{mapOFDS}
 \alias{mapOFDS}
-\title{Title}
+\title{Plot OFDS data on a map}
 \usage{
 mapOFDS(
   ofdslist,
   spancol = "networkname",
   nodecol = "networkname",
-  colpal = paletteer_dynamic("cartography::multi.pal", 20),
+  colpal = unname(pals::alphabet(16)),
   spanlegend = TRUE,
   nodelegend = TRUE
 )
@@ -30,7 +30,7 @@ mapOFDS(
 a leaflet map
 }
 \description{
-Title
+Plot OFDS data on a map
 }
 \examples{
 \dontrun{

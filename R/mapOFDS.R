@@ -1,4 +1,4 @@
-#' Title
+#' Plot OFDS data on a map
 #'
 #' @param ofdslist a list of OFDS objects generates from readOFDS
 #' @param nodecol the variable to colour nodes by
@@ -10,7 +10,8 @@
 #' @return a leaflet map
 #' @importFrom leaflet leaflet addPolylines addMarkers addTiles addLegend
 #' @importFrom dplyr %>%
-#' @importFrom paletteer paletteer_dynamic
+#' @importFrom pals alphabet
+#' @importFrom tibble tibble
 #' @export
 #'
 #' @examples
@@ -22,21 +23,36 @@
 #' nodelegend = FALSE,
 #' spanlegend = FALSE)}
 
-mapOFDS <- function(ofdslist, spancol = 'networkname', nodecol = 'networkname', colpal =  paletteer_dynamic("cartography::multi.pal", 20), spanlegend = TRUE,nodelegend = TRUE){
+mapOFDS <- function(ofdslist,
+                    spancol = 'networkname',
+                    nodecol = 'networkname',
+                    colpal =  unname(pals::alphabet(16)),
+                    spanlegend = TRUE,
+                    nodelegend = TRUE){
 
     m <- leaflet::leaflet() %>%
     leaflet::addTiles()
-    
   
+  colpal <- colpal[2:16]
+    
   for(i in 1:length(ofdslist$spans)) {
     span <- ofdslist$spans[[i]]
+    spanlegend_lab <- unlist(span[spancol],use.names = FALSE)[1]
+
     if(i == 1){
-      spancolvar <- unlist(span[1,spancol])
-    } else {
-      spancolvar <- c(spancolvar,unlist(span[1,spancol]))
+      spanlegend_labs <- spanlegend_lab
+      spanlegend_col <- colpal[which(spanlegend_labs == spanlegend_lab)]
+      spanlegend_cols <- spanlegend_col
+    } else{
+      if(!spanlegend_lab %in% spanlegend_labs){
+        spanlegend_labs <- c(spanlegend_labs,spanlegend_lab)
+      }
+      spanlegend_col <- colpal[which(spanlegend_labs == spanlegend_lab)]
+      if(!spanlegend_col %in% spanlegend_cols){
+        spanlegend_cols <- c(spanlegend_cols,spanlegend_col)
+      }
     }
-    spancolvar <- unique(spancolvar)
-    col = colpal[which(spancolvar == unlist(span[1,spancol]))]
+    
     
     m  <- m %>% 
       leaflet::addPolylines(lng = span$long,
@@ -48,18 +64,37 @@ mapOFDS <- function(ofdslist, spancol = 'networkname', nodecol = 'networkname', 
                                            'Status: ',span$status, '<br>',
                                            'Fibre type: ',span$fibreType, '<br>',
                                            'Transmission medium: ', span$transmissionMedium),
-                            color = col)
+                            color = spanlegend_col,
+                            weight = 2,
+                            opacity = 0.9)
   }
   
   for(i in 1:length(ofdslist$nodes)){
     node <- ofdslist$nodes[[i]]
+    nodelegend_lab <- unlist(node[nodecol],use.names = FALSE)[1]
+    
     if(i == 1){
-      nodecolvar <- unlist(node[1,nodecol])
-    } else {
-      nodecolvar <- c(nodecolvar,unlist(node[1,nodecol]))
+      nodelegend_labs <- nodelegend_lab
+      if(nodelegend_lab %in% spanlegend_labs){
+        nodelegend_col <- colpal[which(spanlegend_labs == nodelegend_lab)]
+      } else{
+        nodelegend_col <- colpal[length(spanlegend_cols)+1]
+      }
+      nodelegend_cols <- nodelegend_col
+      
+    } else{
+      if(!nodelegend_lab %in% nodelegend_labs){
+        nodelegend_labs <- c(nodelegend_labs,nodelegend_lab)
+      }
+      if(nodelegend_lab %in% spanlegend_labs){
+        nodelegend_col <- colpal[which(spanlegend_labs == nodelegend_lab)]
+      } else{
+        nodelegend_col <- colpal[length(spanlegend_labs)+which(nodelegend_labs == nodelegend_lab)]
+      }
+      if(!nodelegend_col %in% nodelegend_cols){
+        nodelegend_cols <- c(nodelegend_cols,nodelegend_col)
+      }
     }
-    nodecolvar <- unique(nodecolvar)
-    col = colpal[which(nodecolvar == unlist(node[1,nodecol]))]
     
     m  <- m %>% 
       leaflet::addCircleMarkers(lng = node$long,
@@ -69,24 +104,30 @@ mapOFDS <- function(ofdslist, spancol = 'networkname', nodecol = 'networkname', 
                                         'Physical infrastructure provider: ',node$physicalInfrastructureProvider, '<br>',
                                         'Status: ',node$status, '<br>',
                                         'Type: ',node$type),
-                          color = col)
+                          color = nodelegend_col,
+                          weight = 1,
+                          opacity = 0.9,
+                          fillOpacity = 0.6,
+                          radius = 5)
   }
     
   if(spanlegend)
   {
     m <- m %>%
-      addLegend(colors = colpal[1:length(spancolvar)],
-                labels = spancolvar,
+      addLegend(colors = spanlegend_cols,
+                labels = spanlegend_labs,
                 position = 'bottomright',
-                title = 'Spans')
+                title = 'Spans',
+                opacity = 0.9)
   }
     if(nodelegend)
     {
       m <- m %>%
-        addLegend(colors = colpal[1:length(nodecolvar)],
-                  labels = nodecolvar,
+        addLegend(colors = nodelegend_cols,
+                  labels = nodelegend_labs,
                   position = 'bottomleft',
-                  title = 'Nodes')
+                  title = 'Nodes',
+                  opacity = 0.6)
     }
     
   return(m)

@@ -1,10 +1,9 @@
 Package: ofdsmaps
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Visualise Open Fibre Data Standard Data
+Version: 0.1
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person("Lewis", "Spurgin", , "openfibre@opendataservices.coop", role = c("aut", "cre"))
+Description: Download and read OFDS JSON data. Visualise it on a map. Includes and R Shiny app.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -14,6 +13,6 @@ Imports:
     googledrive,
     jsonlite,
     leaflet,
-    paletteer,
+    pals,
     purrr,
     tibble
