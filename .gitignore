@@ -5,5 +5,5 @@ inst/rmd/*.html
 inst/shiny/ofdsmaps/rsconnect
 inst/shiny/ofdsmaps/.secrets
 .devcontainer/*
-inst/shiny/data/Ghana/*
-inst/shiny/data/Kenya/*
+inst/shiny/data/Ghana/*.json
+inst/shiny/data/Kenya/*.json
