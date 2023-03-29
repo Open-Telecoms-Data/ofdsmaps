@@ -44,8 +44,10 @@ mapOFDS <- function(ofdslist, spancol = 'networkname', nodecol = 'networkname', 
                             popup = paste0('Network: ',span$networkname,'<br>',
                                            'Span: ',span$name, '<br>',
                                            'Physical infrastructure provider: ',span$physicalInfrastructureProvider, '<br>',
+                                           'Supplier: ',span$supplier, '<br>',
                                            'Status: ',span$status, '<br>',
-                                           'Fibre type: ',span$fibreType),
+                                           'Fibre type: ',span$fibreType, '<br>',
+                                           'Transmission medium: ', span$transmissionMedium),
                             color = col)
   }
   
@@ -66,7 +68,7 @@ mapOFDS <- function(ofdslist, spancol = 'networkname', nodecol = 'networkname', 
                                         'Node: ', node$name, '<br>',
                                         'Physical infrastructure provider: ',node$physicalInfrastructureProvider, '<br>',
                                         'Status: ',node$status, '<br>',
-                                        'Access point: ',node$accessPoint),
+                                        'Type: ',node$type),
                           color = col)
   }
     
